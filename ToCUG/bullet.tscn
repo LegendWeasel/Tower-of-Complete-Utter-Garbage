@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8ftgag86kcyr"]
+
+[ext_resource type="Texture2D" uid="uid://newsapir56bb" path="res://icon.svg" id="1_lte1e"]
+[ext_resource type="Script" path="res://bullet.gd" id="1_w31k4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_07inx"]
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("1_w31k4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-4.76837e-07, -4.76837e-07)
+rotation = 1.5708
+scale = Vector2(0.132813, 0.132813)
+texture = ExtResource("1_lte1e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_07inx")
