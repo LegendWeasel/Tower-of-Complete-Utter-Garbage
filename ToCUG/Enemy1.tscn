@@ -110,6 +110,7 @@ root_node = NodePath("../AnimatedSprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_8e4b1")
 }
+autoplay = "Idle"
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 
@@ -118,3 +119,5 @@ shape = SubResource("CircleShape2D_n3w0t")
 
 [connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
 [connection signal="area_exited" from="PlayerDetection" to="." method="_on_player_detection_area_exited"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

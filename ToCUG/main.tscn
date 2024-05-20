@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://uqgabd86xtqe"]
+
+[ext_resource type="PackedScene" uid="uid://cro88nvwcg42" path="res://player.tscn" id="1_hvllw"]
+
+[node name="main" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 469.0
+offset_top = 14.0
+offset_right = 612.0
+offset_bottom = 37.0
+text = "Please kill me now"
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_hvllw")]
+position = Vector2(580, 319)
+motion_mode = 0
