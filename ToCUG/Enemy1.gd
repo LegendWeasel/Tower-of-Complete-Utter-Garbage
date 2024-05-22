@@ -5,11 +5,16 @@ const SPEED = 25.0
 var health = 3
 var detects_player = false # checks to see if self sees player
 var direction # will be a vector pointing from self to player
-var knockback = Vector2.ZERO
+var knockback_velocity = Vector2.ZERO
 @onready var player = get_tree().get_nodes_in_group("Player")[0] # get player node from group for detection
 
 func _physics_process(delta):
+	movement()
+	knockback()
 	
+	move_and_slide()
+
+func movement():
 	# Get the vector of direction and handle the movement/deceleration.
 	if detects_player == true:
 		direction = (player.position - self.position).normalized() # get direction vector2
@@ -18,19 +23,17 @@ func _physics_process(delta):
 		look_at(player.position) # points self towards player
 	else: # decelerate to zero if doesn't see player
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
-	
-	
-	if knockback != Vector2.ZERO: # Handles knockback
-		velocity = knockback
-		knockback = lerp(knockback, Vector2.ZERO, 0.2) # lerps knockback value back to 0,0 over time (roughly)
-		if ((knockback - Vector2.ZERO).length() < 10): # deals with floating point errors by setting knockback to 0,0 when its roughly close enough
-			knockback = Vector2.ZERO
-		print(str(knockback))
-	
-	
-	move_and_slide()
+
+func knockback():
+	if knockback_velocity != Vector2.ZERO: # Handling knockback
+		velocity = knockback_velocity
+		knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.2) # lerps knockback value back to 0,0 over time (roughly)
+		if ((knockback_velocity - Vector2.ZERO).length() < 10): # deals with floating point errors by setting knockback to 0,0 when its roughly close enough
+			knockback_velocity = Vector2.ZERO
+		#print(str(knockback))
 
 func die(): # does what the function name describes lmao
+	#put die animation code here
 	self.queue_free()
 
 
@@ -59,4 +62,4 @@ func _on_hurtbox_area_entered(area):
 			var knockback_strength = 512
 			var direction_from_bullet = area.global_position\
 			.direction_to(self.global_position) # create a normalized Vector2 pointing from the bullet to self
-			knockback = direction_from_bullet * knockback_strength
+			knockback_velocity = direction_from_bullet * knockback_strength
