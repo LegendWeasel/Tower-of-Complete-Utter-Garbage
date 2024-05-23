@@ -31,3 +31,6 @@ sprite_frames = SubResource("SpriteFrames_kbxya")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(77, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
