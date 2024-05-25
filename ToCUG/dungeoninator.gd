@@ -7,7 +7,7 @@ var rooms = []
 
 func _ready():
 	generate_dungeon(Vector2(0,0), 20) ## generate a dungeon with (start position, # of rooms to generate)
-	#generate_dungeon(rooms[randi() % rooms.size()].getPosition(), 10) # some testing
+	#generate_dungeon(rooms[randi() % rooms.size()].get_position(), 10) ## some testing
 	mark_room_centers()
 	#print(str(grid))
 
@@ -64,8 +64,10 @@ func generate_dungeon(start_pos, num_rooms):
 func mark_room_centers():
 	## initialize tile coordinate variables
 	var room_center: Vector2 ## tile coordinates of the center of the room locally to self
+	var room_origin_position: Vector2 ## tile coordinates of upper left corner of room
 	var room_center_position: Vector2 ## tile coordinates of room center in the world
 	var connected_room_center: Vector2  ## tile coordinates of the center of the connected room locally to self
+	var connected_room_origin_position: Vector2 ## tile coordinates of upper left corner of connected room
 	var connected_room_center_position: Vector2 ## tile coordinates of the center of the connected room in the world
 	
 	## pseudocode of the solution
@@ -75,6 +77,18 @@ func mark_room_centers():
 				##for range room1.x to room2.x, add a hallway tile
 			##if center of both rooms are vertical to each other
 				##for range room1.y to room2.y, add a hallway tile
+	
+	for room in rooms:
+		var tile_map = room.get_node("TileMap")
+		room_center = Vector2(room.get_room_tile_width()/2, room.get_room_tile_length()/2)
+		## get the upper left tile position of the room based on grid position multiplied by room size
+		room_origin_position =  Vector2(room.x, room.y) * Vector2(room.get_room_tile_width(), room.get_room_tile_length())
+		room_center_position = room_origin_position + room_center
+		print("origin" + str(room_origin_position))
+		print("center" + str(room_center_position))
+		tile_map.set_cell(0, room_center_position, 0, Vector2(3,0)) # doesn't work yet
+		for c_room in room.connected_rooms:
+			pass
 	
 	#for room in rooms:
 		#var tile_map = room.get_node("TileMap")
