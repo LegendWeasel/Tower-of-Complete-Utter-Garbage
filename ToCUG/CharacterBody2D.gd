@@ -29,7 +29,7 @@ func get_input():
 		shoot()
 	
 	# Player Face direction
-	look_at(get_global_mouse_position())
+	#look_at(get_global_mouse_position())
 	
 func shoot():
 	var b = bullet.instantiate()

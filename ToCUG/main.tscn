@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://uqgabd86xtqe"]
 
-[ext_resource type="PackedScene" uid="uid://cro88nvwcg42" path="res://player.tscn" id="1_hvllw"]
+[ext_resource type="PackedScene" uid="uid://cro88nvwcg42" path="res://Player.tscn" id="1_b045d"]
 
 [node name="main" type="Node2D"]
 
@@ -11,6 +11,5 @@ offset_right = 612.0
 offset_bottom = 37.0
 text = "Please kill me now"
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_hvllw")]
-position = Vector2(580, 319)
-motion_mode = 0
+[node name="Player" parent="." instance=ExtResource("1_b045d")]
+position = Vector2(539, 307)
