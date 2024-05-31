@@ -30,9 +30,6 @@ position = Vector2(2.38419e-07, 2.38419e-07)
 scale = Vector2(0.5625, 0.5625)
 sprite_frames = SubResource("SpriteFrames_ut5ro")
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
-zoom = Vector2(3, 3)
-
 [node name="Anchor" type="Marker2D" parent="." index="4"]
 script = ExtResource("4_a8ejj")
 
@@ -50,3 +47,6 @@ position = Vector2(13, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor/AttackHitbox" index="0"]
 shape = SubResource("RectangleShape2D_8prlp")
+
+[node name="Camera2D" type="Camera2D" parent="." index="5"]
+zoom = Vector2(3, 3)

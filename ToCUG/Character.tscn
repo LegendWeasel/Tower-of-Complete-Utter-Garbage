@@ -54,3 +54,5 @@ unique_name_in_owner = true
 scale = Vector2(0.013, 0.013)
 sprite_frames = SubResource("SpriteFrames_aqpn6")
 animation = &"Idle"
+
+[node name="InvincibilityTimer" type="Timer" parent="."]

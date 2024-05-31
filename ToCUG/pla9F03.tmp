@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cro88nvwcg42"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_v0iwe"]
+[ext_resource type="Texture2D" uid="uid://newsapir56bb" path="res://icon.svg" id="2_j7q3p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1ag8"]
+size = Vector2(119, 124)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kbxya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j7q3p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xgxbq"]
+radius = 87.0919
+
+[node name="player" type="CharacterBody2D" groups=["Player"]]
+motion_mode = 1
+script = ExtResource("1_v0iwe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -1)
+shape = SubResource("RectangleShape2D_n1ag8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_kbxya")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(77, 0)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_xgxbq")
+debug_color = Color(1, 0, 0, 0.411765)
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_exited" from="Hurtbox" to="." method="_on_hurtbox_body_exited"]

@@ -8,3 +8,6 @@ func _ready():
 
 func _physics_process(delta):
 	position += transform.x * speed * delta
+
+func die():
+	self.queue_free()
