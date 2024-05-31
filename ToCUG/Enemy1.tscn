@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cx55bwelleuh1"]
+[gd_scene load_steps=16 format=3 uid="uid://cx55bwelleuh1"]
 
 [ext_resource type="Script" path="res://Enemy1.gd" id="1_24wc8"]
 [ext_resource type="Texture2D" uid="uid://upmh5a628mgg" path="res://Enemy/ursulDumpy1.png" id="2_f8bev"]
@@ -93,10 +93,13 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_n3w0t"]
 radius = 125.196
 
-[node name="Enemy1" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pyon"]
+radius = 14.0357
+
+[node name="Enemy1" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_24wc8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pjnkd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -116,8 +119,14 @@ autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("CircleShape2D_n3w0t")
+debug_color = Color(1, 1, 1, 0.419608)
 
-[connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
-[connection signal="area_exited" from="PlayerDetection" to="." method="_on_player_detection_area_exited"]
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_6pyon")
+debug_color = Color(0.960784, 0, 0, 0.419608)
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
