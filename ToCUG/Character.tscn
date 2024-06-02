@@ -56,3 +56,6 @@ sprite_frames = SubResource("SpriteFrames_aqpn6")
 animation = &"Idle"
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
