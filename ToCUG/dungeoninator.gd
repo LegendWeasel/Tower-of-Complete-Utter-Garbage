@@ -84,11 +84,16 @@ func mark_room_centers():
 		## get the upper left tile position of the room based on grid position multiplied by room size
 		room_origin_position =  Vector2(room.x, room.y) * Vector2(room.get_room_tile_width(), room.get_room_tile_length())
 		room_center_position = room_origin_position + room_center
-		print("origin" + str(room_origin_position))
-		print("center" + str(room_center_position))
-		tile_map.set_cell(0, room_center_position, 0, Vector2(3,0)) # doesn't work yet
+		#print("origin" + str(room_origin_position))
+		#print("center" + str(room_center_position))
+		tile_map.set_cell(0, room_center, 0, Vector2(3,0)) ## why does room_center work but not room_center_position ?
 		for c_room in room.connected_rooms:
-			pass
+			connected_room_center = Vector2(c_room.get_room_tile_width()/2, c_room.get_room_tile_length()/2)
+			connected_room_origin_position =  Vector2(c_room.x, c_room.y) * Vector2(c_room.get_room_tile_width(), c_room.get_room_tile_length())
+			connected_room_center_position = room_origin_position + room_center
+			if room_center_position.y == connected_room_center_position.y:
+				for x in range (room_center_position.x, connected_room_center_position.x):
+					tile_map.set_cell(0, x, 0, Vector2(3,0)) ## ok, set_cell is not working in the way I think its supposed to, consult for ideas later
 	
 	#for room in rooms:
 		#var tile_map = room.get_node("TileMap")
