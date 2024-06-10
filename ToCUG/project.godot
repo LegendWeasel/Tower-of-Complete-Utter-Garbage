@@ -15,6 +15,11 @@ run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+mouse_cursor/custom_image="res://crosshair.png"
+mouse_cursor/custom_image_hotspot=Vector2(16, 16)
+
 [input]
 
 up={
@@ -50,4 +55,5 @@ shoot={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0
+<<<<<<<HEADtextures/canvas_textures/default_texture_filter=0
