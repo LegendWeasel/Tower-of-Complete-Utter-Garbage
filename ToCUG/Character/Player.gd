@@ -1,22 +1,31 @@
 # Player.gd
-extends "res://Character.gd"
+extends "res://Character/Character.gd"
+
+signal fire_requested
 
 func _init():
 	super._init(100, 200, 1)
 	
 func _physics_process(delta):
 	get_input()
+	move_and_slide()
 
 func _input(event):
 	if event is InputEventMouseButton:
 		var hitbox = $Anchor/AttackHitbox/CollisionShape2D
 		hitbox.disabled = !hitbox.disabled
-			
+		
+		if Input.is_action_pressed("shoot"):
+			var req = FireRequest.new()
+			req.owner_id = get_instance_id()
+			req.team_id = -1 # TODO Change to working team id
+			req.source = global_position
+			req.aim_direction = (get_global_mouse_position() - global_position).normalized()
+			fire_requested.emit(req)
 func get_input():
 	#Player movement	
 	var input_direction = Input.get_vector("left", "right", "up", "down").normalized()
 	velocity = input_direction * speed
-
 
 #func _physics_process(delta):
 	#get_input()
@@ -33,7 +42,7 @@ func get_input():
 	#owner.add_child(b)
 	#b.transform = $Muzzle.global_transform
 
-# takes damage when invincibility timer has counted down
+#takes damage when invincibility timer has counted down
 #func take_damage(delta):
 	#if current_invincibility_time <= 0:
 		#health -= 1

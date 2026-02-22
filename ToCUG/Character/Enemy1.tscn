@@ -1,13 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://cx55bwelleuh1"]
+[gd_scene format=3 uid="uid://cx55bwelleuh1"]
 
-[ext_resource type="Script" path="res://Enemy1.gd" id="1_24wc8"]
-[ext_resource type="Texture2D" uid="uid://upmh5a628mgg" path="res://Enemy/ursulDumpy1.png" id="2_f8bev"]
-[ext_resource type="Texture2D" uid="uid://tyd02k2ck1qg" path="res://Enemy/ursulDumpy2.png" id="3_2cmp0"]
-[ext_resource type="Texture2D" uid="uid://cmd54pcu81hmp" path="res://Enemy/ursulDumpy3.png" id="4_qgvx8"]
-[ext_resource type="Texture2D" uid="uid://dlrsfus8dbpe4" path="res://Enemy/ursulDumpy4.png" id="5_wi7da"]
-[ext_resource type="Texture2D" uid="uid://dn6b6whkjt3c5" path="res://Enemy/ursulDumpy5.png" id="6_6cjif"]
-[ext_resource type="Texture2D" uid="uid://tewwj15gfo8r" path="res://Enemy/ursulDumpy6.png" id="7_de3sd"]
-[ext_resource type="Texture2D" uid="uid://30xnf6nd21s2" path="res://Enemy/ursulDumpy7.png" id="8_w2i4s"]
+[ext_resource type="Script" uid="uid://164dc2tpnd4w" path="res://Character/Enemy1.gd" id="1_24wc8"]
+[ext_resource type="Texture2D" uid="uid://upmh5a628mgg" path="res://Character/Enemy/ursulDumpy1.png" id="2_f8bev"]
+[ext_resource type="Texture2D" uid="uid://tyd02k2ck1qg" path="res://Character/Enemy/ursulDumpy2.png" id="3_2cmp0"]
+[ext_resource type="Texture2D" uid="uid://cmd54pcu81hmp" path="res://Character/Enemy/ursulDumpy3.png" id="4_qgvx8"]
+[ext_resource type="Texture2D" uid="uid://dlrsfus8dbpe4" path="res://Character/Enemy/ursulDumpy4.png" id="5_wi7da"]
+[ext_resource type="Texture2D" uid="uid://dn6b6whkjt3c5" path="res://Character/Enemy/ursulDumpy5.png" id="6_6cjif"]
+[ext_resource type="Texture2D" uid="uid://tewwj15gfo8r" path="res://Character/Enemy/ursulDumpy6.png" id="7_de3sd"]
+[ext_resource type="Texture2D" uid="uid://30xnf6nd21s2" path="res://Character/Enemy/ursulDumpy7.png" id="8_w2i4s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pjnkd"]
 

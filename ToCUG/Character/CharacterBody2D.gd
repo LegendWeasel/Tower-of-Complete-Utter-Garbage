@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 #@export var bullet: PackedScene
-var bullet = preload("res://bullet.tscn")
+var bullet = preload("res://Combat/bullet.tscn")
 #@onready var bullet = get_node("bullet")
 const SPEED = 300.0
 #const JUMP_VELOCITY = -400.0
