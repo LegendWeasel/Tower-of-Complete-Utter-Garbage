@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d22uhmd2j2780"]
 
 [ext_resource type="Texture2D" uid="uid://newsapir56bb" path="res://icon.svg" id="1_0u7sp"]
+[ext_resource type="PackedScene" uid="uid://c1ndlsutw5dv4" path="res://Combat/projectile_manager.tscn" id="1_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://cx55bwelleuh1" path="res://Character/Enemy1.tscn" id="2_pkfb5"]
 [ext_resource type="PackedScene" uid="uid://cro88nvwcg42" path="res://Character/player.tscn" id="3_y2kbs"]
 
@@ -87,6 +88,8 @@ sources/0 = SubResource("TileSetAtlasSource_7skr5")
 
 [node name="World" type="Node2D" unique_id=1288642943]
 
+[node name="ProjectileManager" parent="." unique_id=932453257 instance=ExtResource("1_aqk2v")]
+
 [node name="TileMap" type="TileMap" parent="." unique_id=346373558]
 tile_set = SubResource("TileSet_v2kjq")
 format = 2
@@ -100,9 +103,10 @@ shape = SubResource("RectangleShape2D_5580g")
 [node name="Enemy1" parent="." unique_id=936764861 instance=ExtResource("2_pkfb5")]
 position = Vector2(90, 445)
 
-[node name="player" parent="." unique_id=1566531476 instance=ExtResource("3_y2kbs")]
+[node name="player" parent="." unique_id=1566531476 groups=["shooter"] instance=ExtResource("3_y2kbs")]
 position = Vector2(196, 629)
 scale = Vector2(1.654, 1.654)
+base_proj = null
 
 [node name="Enemy2" parent="." unique_id=319442464 instance=ExtResource("2_pkfb5")]
 position = Vector2(249, 443)

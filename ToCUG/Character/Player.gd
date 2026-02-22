@@ -3,9 +3,19 @@ extends "res://Character/Character.gd"
 
 signal fire_requested
 
+@export var base_proj: projectile_def # Starts as basic_bullet.tres
+
 func _init():
 	super._init(100, 200, 1)
-	
+
+func _ready():
+	add_to_group("shooters")
+	var pm = get_tree().get_first_node_in_group("projectile_manager")
+	if pm:
+		fire_requested.connect(pm._on_shooter_fire_request)
+		print("Connected fire_requested to ProjectileManager")
+	else:
+		push_warning("No ProjectileManager found to connect to")
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
@@ -16,16 +26,19 @@ func _input(event):
 		hitbox.disabled = !hitbox.disabled
 		
 		if Input.is_action_pressed("shoot"):
-			var req = FireRequest.new()
+			var req: FireRequest = FireRequest.new()
 			req.owner_id = get_instance_id()
 			req.team_id = -1 # TODO Change to working team id
 			req.source = global_position
 			req.aim_direction = (get_global_mouse_position() - global_position).normalized()
+			req.base_projectile = base_proj
 			fire_requested.emit(req)
+			
 func get_input():
 	#Player movement	
 	var input_direction = Input.get_vector("left", "right", "up", "down").normalized()
 	velocity = input_direction * speed
+
 
 #func _physics_process(delta):
 	#get_input()

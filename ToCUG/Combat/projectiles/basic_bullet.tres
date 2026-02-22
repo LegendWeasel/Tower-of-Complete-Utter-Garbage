@@ -1,7 +1,11 @@
 [gd_resource type="Resource" script_class="projectile_def" format=3 uid="uid://xow4c4a85s1l"]
 
 [ext_resource type="Script" uid="uid://d26dgsjx04ddh" path="res://Combat/projectiles/projectile_def.gd" id="1_dupuk"]
+[ext_resource type="PackedScene" uid="uid://c8ftgag86kcyr" path="res://Combat/bullet.tscn" id="1_ti25h"]
 
 [resource]
 script = ExtResource("1_dupuk")
+scene = ExtResource("1_ti25h")
+base_speed = 700.0
+tags = Array[StringName]([&"physical", &"bullet"])
 metadata/_custom_type_script = "uid://d26dgsjx04ddh"

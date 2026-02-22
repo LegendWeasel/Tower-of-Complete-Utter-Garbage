@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://blxgc2vu5lacb" path="res://Character/Character.tscn" id="1_lln7v"]
 [ext_resource type="Script" uid="uid://bno4o62n0anng" path="res://Character/Player.gd" id="2_rqqfu"]
+[ext_resource type="Resource" uid="uid://xow4c4a85s1l" path="res://Combat/projectiles/basic_bullet.tres" id="3_tp31j"]
 [ext_resource type="Texture2D" uid="uid://cqh323nbymg1w" path="res://red_amogus.png" id="3_vb80a"]
 [ext_resource type="Script" uid="uid://cvn3ekaya4bx8" path="res://Character/Player/Anchor.gd" id="4_a8ejj"]
 [ext_resource type="Texture2D" uid="uid://newsapir56bb" path="res://icon.svg" id="5_iwtdv"]
@@ -23,6 +24,7 @@ size = Vector2(6, 20)
 
 [node name="Player" unique_id=1523534068 groups=["Player"] instance=ExtResource("1_lln7v")]
 script = ExtResource("2_rqqfu")
+base_proj = ExtResource("3_tp31j")
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1473727275]
 unique_name_in_owner = false
