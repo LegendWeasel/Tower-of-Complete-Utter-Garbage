@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="projectile_def" format=3 uid="uid://xow4c4a85s1l"]
 
-[ext_resource type="Script" uid="uid://d26dgsjx04ddh" path="res://Combat/projectiles/projectile_def.gd" id="1_dupuk"]
-[ext_resource type="PackedScene" uid="uid://c8ftgag86kcyr" path="res://Combat/bullet.tscn" id="1_ti25h"]
+[ext_resource type="Script" uid="uid://d26dgsjx04ddh" path="res://Combat/projectile_types/projectile_def.gd" id="1_dupuk"]
+[ext_resource type="PackedScene" uid="uid://c8ftgag86kcyr" path="res://Combat/projectile.tscn" id="1_ti25h"]
 
 [resource]
 script = ExtResource("1_dupuk")
