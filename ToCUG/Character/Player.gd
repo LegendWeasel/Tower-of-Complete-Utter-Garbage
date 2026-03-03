@@ -3,7 +3,8 @@ extends "res://Character/Character.gd"
 
 signal fire_requested
 
-@export var base_proj: projectile_def # Starts as basic_bullet.tres
+#@export var base_proj: projectile_def # Starts as basic_bullet.tres
+@export var base_proj: PackedScene
 
 func _init():
 	super._init(100, 200, 1)
@@ -31,7 +32,10 @@ func _input(event):
 			req.team_id = -1 # TODO Change to working team id
 			req.source = global_position
 			req.aim_direction = (get_global_mouse_position() - global_position).normalized()
-			req.base_projectile = base_proj
+			#req.base_projectile = base_proj
+			req.proj_scene = base_proj
+			req.lifetime = 5.0 # MAGIC NUMBER FOR NOW
+			req.speed = 100.0 # MORE MAGIC NUMBER
 			fire_requested.emit(req)
 			
 func get_input():

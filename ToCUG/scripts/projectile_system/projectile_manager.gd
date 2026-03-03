@@ -19,20 +19,24 @@ func _process(delta: float) -> void:
 func _on_shooter_fire_request(req: FireRequest) -> void:
 	print(str(req.owner_id) + " just fired")
 	
-	if req.base_projectile == null:
+	if req.proj_scene == null:
 		push_warning("Base projectile not assigned")
 		return
 	
 	var context = FireContext.new(req)
 	for modifier in req.modifiers:
-		modifier.apply()
+		modifier.apply(context)
 	# Create the projectiles defined by request
-	for spawn_requests in context.spawn_requests:
-		var proj = context.request.base_projectile.scene.instantiate() as Projectile
+	for spawn_request in context.spawn_requests:
+		var proj = spawn_request.proj_scene.instantiate() as Projectile
 		#var proectile := req.base_projectile.scene.instantiate() as Bullet
 		# Instanciates the spawns
-		proj.initialize(spawn_requests)
 		add_child(proj)
+		proj.initialize(spawn_request)
+		
+		for mod in context.projectile_modifiers:
+			mod.on_projectile_spawned(proj)
+		print("spawned:", proj, " path:", proj.get_path(), " at ", proj.get_global_position())
 		
 
 

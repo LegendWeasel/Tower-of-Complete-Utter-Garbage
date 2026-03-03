@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://blxgc2vu5lacb" path="res://Character/Character.tscn" id="1_lln7v"]
 [ext_resource type="Script" uid="uid://bno4o62n0anng" path="res://Character/Player.gd" id="2_rqqfu"]
-[ext_resource type="Resource" uid="uid://xow4c4a85s1l" path="res://Combat/projectile_types/basic_bullet.tres" id="3_tp31j"]
+[ext_resource type="PackedScene" uid="uid://c8ftgag86kcyr" path="res://Combat/projectile.tscn" id="3_tp31j"]
 [ext_resource type="Texture2D" uid="uid://cqh323nbymg1w" path="res://red_amogus.png" id="3_vb80a"]
 [ext_resource type="Script" uid="uid://cvn3ekaya4bx8" path="res://Character/Player/Anchor.gd" id="4_a8ejj"]
 [ext_resource type="Texture2D" uid="uid://newsapir56bb" path="res://icon.svg" id="5_iwtdv"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tp31j"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_cyipv"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -30,7 +30,7 @@ base_proj = ExtResource("3_tp31j")
 unique_name_in_owner = false
 position = Vector2(2.38419e-07, 2.38419e-07)
 scale = Vector2(0.5625, 0.5625)
-sprite_frames = SubResource("SpriteFrames_tp31j")
+sprite_frames = SubResource("SpriteFrames_cyipv")
 
 [node name="Anchor" type="Marker2D" parent="." index="4" unique_id=79435094]
 script = ExtResource("4_a8ejj")

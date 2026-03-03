@@ -7,7 +7,7 @@ class_name FireContext
 
 #var request : FireRequest
 var spawn_requests: Array[ProjectileSpawnBlueprint] = []
-var active_projectile_modifiers: Array[ProjectileModifier] = []
+var projectile_modifiers: Array[ProjectileModifier] = []
 
 func _init(request: FireRequest) -> void:
 	#request = p_request
@@ -22,9 +22,12 @@ func add_spawn(req: FireRequest):
 	spawn.direction = req.aim_direction
 	spawn.modifiers = req.modifiers
 	spawn.owner_id = req.owner_id
-	spawn.speed = req.base_projectile.base_speed
 	spawn.team_id = req.team_id
+	spawn.speed = req.speed
+	spawn.lifetime = req.lifetime
+	spawn.proj_scene = req.proj_scene
+	#tags are added later
 	spawn_requests.append(spawn)
 
 func register_projectile_modifers(mod: ProjectileModifier):
-	active_projectile_modifiers.append(mod)
+	projectile_modifiers.append(mod)

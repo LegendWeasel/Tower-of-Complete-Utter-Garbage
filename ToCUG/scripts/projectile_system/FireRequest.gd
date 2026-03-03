@@ -10,5 +10,6 @@ var source: Vector2 # Starting position of proj.
 var aim_direction: Vector2 # Normalized vector pointing towards target
 var speed: float # In pixels per second. Scalar
 var lifetime: float# How long bullet is alive for 
-var base_projectile: projectile_def # basic projectile data
-var modifiers: Array[Resource] # List of all mods applying to proj.
+#var base_projectile: projectile_def # basic projectile data legacy
+var proj_scene: PackedScene
+var modifiers: Array[ProjectileModifier] # List of all mods applying to proj.
